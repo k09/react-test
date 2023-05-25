@@ -1,0 +1,21 @@
+{
+  "numbers": [
+    {
+      "value": "42",
+      "text": "Fourty two",
+      "id": "ro2tBzs3y_xjUKDvGATTF"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Minn fyrsti póstur......",
+      "author": "Kristján Kristmannsson",
+      "id": "ro2tBzs3y_xjUKDvGATTF"
+    },
+    {
+      "title": "Ragna's First",
+      "author": "Ragnheiður Sigurðardóttir",
+      "id": "ro2tBzs3y_xzUKDvGATDD"
+    }
+  ]
+}
