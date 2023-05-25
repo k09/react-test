@@ -39,9 +39,17 @@ export const postsApiSlice = createApi({
           ? [...result.map(({ id }) => ({ type: 'Post', id })), 'Post']
           : ['Post'],
     }),
+    insertPost: builder.mutation({
+      query: (post) => ({
+        url: '/posts',
+        method: 'POST',
+        body: post
+      }),
+      invalidatesTags: [{ type: 'Post'}]
+    }),
     getPost: builder.query({
         query: id => `/posts/${id}`,
-        providesTags: ['Post']
+        providesTags: (result, error, id) => [{ type: 'Post', id }]
     }),
     updatePost: builder.mutation({
       query: ({ id, ...post}) => ({
@@ -49,32 +57,22 @@ export const postsApiSlice = createApi({
         method: 'PATCH',
         body: post
       }),
-      invalidatesTags: (result, error, arg) => 
-        [{ type: 'Post', id: arg.id }]
-    }),
-    insertPost: builder.mutation({
-      query: (post) => ({
-        url: '/posts',
-        method: 'POST',
-        body: post
-      }),
-      invalidatesTags: ['Post']
+      invalidatesTags: (result, error, { id }) => [{ type: 'Post', id }]
     }),
     deletePost: builder.mutation({
       query: (id) => ({
         url: `/posts/${id}`,
         method: 'DELETE'
       }),
-      invalidatesTags: (result, error, arg) => 
-        [{ type: 'Post', id: arg.id }]
+      invalidatesTags: (result, error, id) => [{ type: 'Post', id }]
     })
   })
 })
 
 export const { 
-  useGetPostsQuery, 
   useGetPostQuery,
-  useUpdatePostMutation,
+  useGetPostsQuery, 
   useInsertPostMutation,
+  useUpdatePostMutation,
   useDeletePostMutation
 } = postsApiSlice

@@ -55,10 +55,10 @@ const Posts = () => {
   let selectedPostTitle = selectedPost !== null ? selectedPost.title : '';
   let selectedPostAuthor = selectedPost !== null ? selectedPost.author : '';
   return (
-    <>
+    <div>
         <h2 id='posts'>Posts</h2>
         <button onClick={refetchPosts} disabled={!posts}>refetch</button>
-        <ul className={isPostsFetching ? 'posts-disabled' : ''}>
+        <ul className={isPostsFetching ? 'posts-disabled' : ''} style={{minHeight:'256px',maxWidth:'512px',backgroundColor:'lightgray'}}>
             {content}
         </ul>
         Id: {selectedPostId}<br/>
@@ -75,7 +75,7 @@ const Posts = () => {
           )}
         >update
         </button>
-    </>
+    </div>
   )
 }
 export default Posts;

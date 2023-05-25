@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import counterReducer from '../features/counter/counterSlice';
 import numbersReducer, { numbersApiSlice } from '../features/numbers/numbersSlice';
+import selectorsReducer from '../features/selectors/selectorsSlice';
 import postsReducer, { postsApiSlice } from '../features/posts/postsSlice';
 
 
@@ -9,6 +10,7 @@ export const store = configureStore({
   reducer: {
     counter: counterReducer,
     numbers: numbersReducer,
+    selectors: selectorsReducer,
     [numbersApiSlice.reducerPath]: numbersApiSlice.reducer,
     posts: postsReducer,
     [postsApiSlice.reducerPath]: postsApiSlice.reducer

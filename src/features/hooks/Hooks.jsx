@@ -352,6 +352,10 @@ const Hooks = () => {
                 <dt>reset</dt>
                 <dd>A method to reset the hook back to it's original state and remove the current result from the cache</dd>
             </dl>
+            <h3>Writing Memoized Selectors with Reselect</h3>
+            <p>Memoization is a form of caching. It involves tracking inputs to a function, and storing the inputs and the results for later reference. If a function is called with the same inputs as before, the function can skip doing the actual work, and return the same result it generated the last time it received those input values. This optimizes performance by only doing work if inputs have changed, and consistently returning the same result references if the inputs are the same.</p>
+            <h4>createSelector(...)</h4>
+            <p>Reselect provides a function called createSelector to generate memoized selectors. createSelector accepts one or more "input selector" functions, plus an "output selector" function, and returns a new selector function for you to use.</p>
 
             <hr/>
         </>

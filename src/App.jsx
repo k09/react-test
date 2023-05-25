@@ -8,6 +8,8 @@ import SuspenseComponent from './features/various/Suspense';
 import { ThemeContext } from './app/ThemeContext';
 import './App.css'
 import Posts from './features/posts/Posts';
+import Posts3 from './features/posts/Posts3';
+import Selectors from './features/selectors/Selectors';
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -19,6 +21,8 @@ const App = () => {
       <Numbers />
       <Hooks />
       <Posts />
+      <Posts3 />
+      <Selectors/>
       <ProfilerComponent />
       <SuspenseComponent />
     </ThemeContext.Provider>
