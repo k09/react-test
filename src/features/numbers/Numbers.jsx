@@ -4,7 +4,6 @@ import { nanoid } from '@reduxjs/toolkit';
 import { ThemeContext } from '../../app/ThemeContext';
 import { useContext } from 'react';
 
-
 const Numbers = () => {
     const [selected, setSelected] = useState({});
     const [editMode, setEditMode] = useState(false);
@@ -20,9 +19,9 @@ const Numbers = () => {
     }, [selected]);
     const { data: numbersData, isLoading: isLoadingNumbers, isError: isErrorNumbers, error: errorNumbers  } = useGetNumbersQuery();
     const { data: numberData, isLoading: isLoadingNumber, isError: isErrorNumber, error: errorNumber } = useGetNumberQuery(selected ? selected.id : 0);
-    const [add] = useAddNumberMutation();
-    const [edit] = useEditNumberMutation();
-    const [del] = useDeleteNumberMutation();
+    const add = useAddNumberMutation();
+    const edit = useEditNumberMutation();
+    const del = useDeleteNumberMutation();
     const {theme} = useContext(ThemeContext);
     const canSave = 
         (valueRef && valueRef.current && valueRef.current.value.length > 0) && 
@@ -79,7 +78,7 @@ const Numbers = () => {
                     <div key={number.id}>
                         <button onClick={() => handleEdit(number)}>e</button>&nbsp;
                         <button onClick={() => handleDelete(number.id)}>d</button>&nbsp;
-                        {number.value} {number.text ? `(${number.text})` : ''}&nbsp;({number.id})
+                        {number.value} {number.text} ({number.id})
                     </div>
                 )
             }

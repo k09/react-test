@@ -1,0 +1,30 @@
+================================================================
+App.jsx
+================================================================
+import Posts3 from './features/posts/Posts3';
+import Selectors from './features/selectors/Selectors';
+      <Posts3 />
+      <Selectors/>
+================================================================
+Posts3.jsx
+================================================================
+let contentPosts = '';
+    if (isLoadingPosts) contentPosts = <div>Loading Posts......</div>
+    if (isErrorPosts) contentPosts = <div>Posts Error: {errorPosts}......</div>
+    if (isSuccessPosts) { 
+        contentPosts = posts.map((post) => { return <li key={post.id}>{post.title} ({post.author}) </li> })
+    }
+            <hr />
+            <hr />
+            <h3>Posts III</h3>
+            <ul>
+                {contentPosts}
+            </ul>
+            <div><button onClick={(e) => refetchPosts(e)}>refetch</button></div>
+           <hr />
+           <hr /> 
+================================================================
+Posts2.jsx
+================================================================
+
+    
