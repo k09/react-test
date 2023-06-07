@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 //import { numbersApiSlice } from './features/numbers/numbersSlice';
 //import { postsApiSlice } from './features/posts/postsSlice';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 const app = 'App';
 
@@ -31,11 +32,14 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
   <React.StrictMode>
-    <Profiler id={app} onRender={onRender}>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
-    </Profiler>
+    <Container className='my-4'>
+      <Profiler id={app} onRender={onRender}>
+          <Provider store={store}>
+            <RouterProvider router={router} />
+          </Provider>
+      </Profiler>
+    </Container>
   </React.StrictMode>
 );
